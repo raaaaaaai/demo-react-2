@@ -1,2 +1,2 @@
-cd /var/www/html/src
+cd /var/www/html
 npm start
