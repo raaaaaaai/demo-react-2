@@ -1,2 +1,2 @@
 cd /var/www/html
-npm start
+serve -s build
