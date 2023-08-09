@@ -4,13 +4,9 @@ phases:
   pre_build:
     commands:
       - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 154020000542.dkr.ecr.ap-south-1.amazonaws.com
-      - sudo yum install docker -y
-      - sudo usermod -a -G docker ec2-user
-      - id ec2-user
-      - sudo systemctl enable docker.service
   build:
     commands:
-      - docker build -t reactapp:1.0 --no-cache
+      - docker build -t reactapp:1.0
       - docker tag reactapp:latest 154020000542.dkr.ecr.ap-south-1.amazonaws.com/react-app:latest
   post_build:
     commands:
