@@ -4,4 +4,4 @@ phases:
   build:
     commands:
       - chmod +x scripts/app_start.sh
-      - ./app_start.sh
+      - ./scripts/app_start.sh
