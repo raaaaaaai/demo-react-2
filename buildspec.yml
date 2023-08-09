@@ -8,7 +8,7 @@ phases:
       - npm install
   pre_build:
     commands:
-      - $(aws ecr get-login --no-include-email --region ${AWS_DEFAULT_REGION})
+      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 154020000542.dkr.ecr.ap-south-1.amazonaws.com
   build:
     commands:
       - docker build -t your-image-name .
