@@ -1,12 +1,5 @@
 version: 0.2
 phases: 
-  install:
-    runtime-versions:
-        docker: 19     
-    commands: 
-      - sudo yum update
-      - sudo yum install docker 
-      - sudo systemctl enable docker
   pre_build: 
     commands: 
     - echo Logging in to Amazon ECR.... 
