@@ -1,7 +1,18 @@
 version: 0.2
 
 phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - npm install
+  pre_build:
+    commands:
+      - $(aws ecr get-login --no-include-email --region ${AWS_DEFAULT_REGION})
   build:
     commands:
-      - chmod +x scripts/app_start.sh
-      - ./scripts/app_start.sh
+      - docker build -t your-image-name .
+      - docker tag your-image-name:latest your-ecr-repo-uri:latest
+  post_build:
+    commands:
+      - docker push your-ecr-repo-uri:latest
