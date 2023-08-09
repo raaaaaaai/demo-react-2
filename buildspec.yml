@@ -7,10 +7,9 @@ phases:
   build:
     commands:
       - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 154020000542.dkr.ecr.ap-south-1.amazonaws.com
-      - sudo su
-      - docker build -t react-app .
-      - docker tag react-app:latest 154020000542.dkr.ecr.ap-south-1.amazonaws.com/react-app:latest
-      - docker push 154020000542.dkr.ecr.ap-south-1.amazonaws.com/react-app:latest
+      - sudo docker build -t react-app .
+      - sudo docker tag react-app:latest 154020000542.dkr.ecr.ap-south-1.amazonaws.com/react-app:latest
+      - sudo docker push 154020000542.dkr.ecr.ap-south-1.amazonaws.com/react-app:latest
   post_build:
     commands:
       
