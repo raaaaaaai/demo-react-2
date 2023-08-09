@@ -1,15 +1,7 @@
 version: 0.2
 
 phases:
-  pre_build:
-    commands:
-      - echo Logging in to Amazon ECR...
-      - $(aws ecr get-login --no-include-email --region ap-south-1)
   build:
     commands:
-      - docker build -t reactapp:1.0 .
-      - docker tag reactapp:1.0 154020000542.dkr.ecr.ap-south-1.amazonaws.com/react-app:latest
-  post_build:
-    commands:
-      - echo Pushing Docker image to Amazon ECR...
-      - docker push 154020000542.dkr.ecr.ap-south-1.amazonaws.com/react-app:latest
+      - chmod +x app_start.sh
+      - ./app_start.sh
