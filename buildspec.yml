@@ -3,7 +3,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - $aws ecr get-login-password --region ap-south-1
+      - aws ecr get-login-password --region ap-south-1
   build:
     commands:
       - build -t reactapp:1.0 .
