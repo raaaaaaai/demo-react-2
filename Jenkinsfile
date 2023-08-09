@@ -6,7 +6,7 @@ pipeline {
       stage('checkout') {
            steps {
              
-               git 'https://github.com/yourusername/your-repo.git'                
+               git 'https://github.com/raaaaaaai/demo-react-2.git'                
                echo "Git Repo Cloned"   
              
           }
