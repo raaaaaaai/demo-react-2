@@ -3,5 +3,5 @@ version: 0.2
 phases:
   build:
     commands:
-      - chmod +x app_start.sh
+      - chmod +x scripts/app_start.sh
       - ./app_start.sh
