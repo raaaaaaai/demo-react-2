@@ -22,4 +22,7 @@ phases:
     - echo pushing to repo
     # update the following line with the URI of your own ECR repository
     - docker push 154020000542.dkr.ecr.ap-south-1.amazonaws.com/react-app:latest
+  artifacts:
+    files: 
+    - Dockerfile
 
