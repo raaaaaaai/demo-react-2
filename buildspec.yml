@@ -1,28 +1,25 @@
 version: 0.2
-phases: 
- 
-  pre_build: 
-    commands: 
-    - echo Logging in to Amazon ECR.... 
-    - aws --version
-    # update the following line with your own region
-    - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 154020000542.dkr.ecr.ap-south-1.amazonaws.com
-  build: 
-    commands: 
-    - echo Build started on `date` 
-    - echo Building the Docker image... 
-    # update the following line with the name of your own ECR repository
-    - docker build -t react-app .
-   # - docker build -t react-app .. > build.log 2>&1
-    # update the following line with the URI of your own ECR repository (view the Push Commands in the console)
-    - docker tag react-app:latest 154020000542.dkr.ecr.ap-south-1.amazonaws.com/react-app:latest
-  post_build: 
-    commands: 
-    - echo Build completed on `date` 
-    - echo pushing to repo
-    # update the following line with the URI of your own ECR repository
-    - docker push 154020000542.dkr.ecr.ap-south-1.amazonaws.com/react-app:latest
-  artifacts:
-    files: 
-    - Dockerfile
 
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws --version
+      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 154020000542.dkr.ecr.ap-south-1.amazonaws.com
+
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t react-app .
+      - docker tag react-app:latest 154020000542.dkr.ecr.ap-south-1.amazonaws.com/react-app:latest
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing to ECR repository...
+      - docker push 154020000542.dkr.ecr.ap-south-1.amazonaws.com/react-app:latest
+
+artifacts:
+  files:
+    - Dockerfile
