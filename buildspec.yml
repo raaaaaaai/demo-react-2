@@ -24,3 +24,4 @@ artifacts:
   files:
     - Dockerfile
     - appspec.yml
+    - scripts/**/*
