@@ -4,6 +4,8 @@ FROM node:19
 # Set the working directory inside the container
 WORKDIR /app
 
+
+RUN npm install -g npm
 # Copy package.json and package-lock.json to the container
 COPY package.json /app/
 COPY package-lock.json /app/
