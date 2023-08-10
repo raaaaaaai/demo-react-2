@@ -1,5 +1,6 @@
 #!/bin/bash
 
+docker ps -q --filter "status=running" | xargs -I {} docker kill {}
 # Login to ECR
 aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 154020000542.dkr.ecr.ap-south-1.amazonaws.com
 # pull docker image
